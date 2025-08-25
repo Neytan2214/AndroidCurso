@@ -33,6 +33,21 @@ class MainActivity : AppCompatActivity() {
 
                 helloWorld.text="Bienvenidos"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 val nuevaVentana = Intent(this, MainActivity2::class.java)
                 nuevaVentana.putExtra("pUsuario", edUsername.text.toString())
                 startActivity(nuevaVentana)
