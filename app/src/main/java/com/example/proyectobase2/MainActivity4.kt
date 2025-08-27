@@ -3,6 +3,7 @@ package com.example.proyectobase2
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,6 +18,15 @@ class MainActivity4 : AppCompatActivity() {
         val edNumero1:EditText=findViewById(R.id.edNumero1)
         val edNumero2:EditText=findViewById(R.id.edNumero2)
         val btnCalcular:Button=findViewById(R.id.btnCalcular)
+        val txResultado:TextView=findViewById(R.id.txResultado)
+        btnCalcular.setOnClickListener {
+            var calcN1:Int=edNumero1.text.toString().toIntOrNull()?:0
+            var calcN2:Int=edNumero2.text.toString().toIntOrNull()?:0
+            var resultadoOP:Int=OpMatematicas.sumar(calcN1,calcN2)
+            txResultado.text=resultadoOP.toString()
+
+
+        }
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
