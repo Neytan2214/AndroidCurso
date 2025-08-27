@@ -18,10 +18,15 @@ class MainActivity2 : AppCompatActivity() {
         val mensajeBienvenida:TextView = findViewById(R.id.Bienvenido)
         val usuarioDesdeOtroActivity=intent.getStringExtra("pUsuario")
         val btnCambiarActivity:Button=findViewById(R.id.btnCambiarActivity)
+        val btnCompatActivity2:Button=findViewById(R.id.btnCambiarActivity2)
         mensajeBienvenida.text = usuarioDesdeOtroActivity.toString()
         btnCambiarActivity.setOnClickListener {
             val accionCambiarVentana=Intent(this,MainActivity3::class.java)
             startActivity(accionCambiarVentana)
+        }
+        btnCompatActivity2.setOnClickListener {
+            val accionIrCalculadora=Intent(this,MainActivity4::class.java)
+            startActivity(accionIrCalculadora)
         }
 
 
