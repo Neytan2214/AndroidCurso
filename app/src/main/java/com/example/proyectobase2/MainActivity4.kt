@@ -26,11 +26,25 @@ class MainActivity4 : AppCompatActivity() {
         val adapter=ArrayAdapter(this,android.R.layout.simple_list_item_1,menuSPoperaciones)
         spOperaciones.adapter=adapter
 
+
         btnCalcular.setOnClickListener {
             var calcN1:Int=edNumero1.text.toString().toIntOrNull()?:0
             var calcN2:Int=edNumero2.text.toString().toIntOrNull()?:0
-            var resultadoOP:Int=OpMatematicas.sumar(calcN1,calcN2)
-            txResultado.text=resultadoOP.toString()
+            if (spOperaciones.selectedItem=="Sumar"){
+                var resultadoOP:Int=OpMatematicas.sumar(calcN1,calcN2)
+                txResultado.text=resultadoOP.toString()
+            }else if (spOperaciones.selectedItem=="Restar"){
+                var resultadoOP:Int=OpMatematicas.restar(calcN1,calcN2)
+                txResultado.text=resultadoOP.toString()
+            }else if (spOperaciones.selectedItem=="Multiplicar"){
+                var resultadoOP:Int=OpMatematicas.multiplicar(calcN1,calcN2)
+                txResultado.text=resultadoOP.toString()
+            }else if (spOperaciones.selectedItem=="Dividir"){
+                var resultadoOP:Int=OpMatematicas.dividir(calcN1,calcN2)
+                txResultado.text=resultadoOP.toString()
+
+            }
+
 
 
         }
