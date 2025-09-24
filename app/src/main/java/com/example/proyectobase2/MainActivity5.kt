@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.proyectobase2.ApiRegionComuna.CargarRegionComunaApi
 
 class MainActivity5 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +17,8 @@ class MainActivity5 : AppCompatActivity() {
         val spRegion:Spinner=findViewById(R.id.sp_regiones)
         val spComuna:Spinner=findViewById(R.id.sp_comunas)
         val btnOpcion:Button=findViewById(R.id.btn_opcion)
+
+        CargarRegionComunaApi.cargarregionComuna(this,spRegion )
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
