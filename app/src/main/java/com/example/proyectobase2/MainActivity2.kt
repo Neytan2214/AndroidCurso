@@ -19,6 +19,7 @@ class MainActivity2 : AppCompatActivity() {
         val usuarioDesdeOtroActivity=intent.getStringExtra("pUsuario")
         val btnCambiarActivity:Button=findViewById(R.id.btnCambiarActivity)
         val btnCambiarActivity2:Button=findViewById(R.id.btnCambiarActivity2)
+        val btnCambiarActivity5:Button=findViewById(R.id.btn_CambiarActivity5)
         mensajeBienvenida.text = usuarioDesdeOtroActivity.toString()
         btnCambiarActivity.setOnClickListener {
             val accionCambiarVentana=Intent(this,MainActivity3::class.java)
@@ -27,6 +28,10 @@ class MainActivity2 : AppCompatActivity() {
         btnCambiarActivity2.setOnClickListener {
             val accionIrCalculadora=Intent(this,MainActivity4::class.java)
             startActivity(accionIrCalculadora)
+        }
+        btnCambiarActivity5.setOnClickListener {
+            val accionIrActivity5=Intent(this,MainActivity5::class.java)
+            startActivity(accionIrActivity5)
         }
 
 
