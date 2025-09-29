@@ -35,7 +35,7 @@ object CargarRegionComunaApi {
                 spinner.adapter = ArrayAdapter(
                     spinner.context,
                     android.R.layout.simple_list_item_1,
-                    datos
+                    datos.distinct()
                 )
 
 
