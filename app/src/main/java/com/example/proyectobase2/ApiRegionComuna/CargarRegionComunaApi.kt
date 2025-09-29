@@ -29,12 +29,15 @@ object CargarRegionComunaApi {
 
                     //"SECCIÓN : ${a.seccion}"
                 }
+                // Limpiar adapter antes de asignar uno nuevo
+                spinner.adapter = null
 
                 spinner.adapter = ArrayAdapter(
                     spinner.context,
                     android.R.layout.simple_list_item_1,
                     datos
                 )
+
 
                 android.util.Log.d("ws_region_Comuna", "items=${regionComuna.size}")
             }.onFailure { e ->
@@ -68,6 +71,8 @@ object CargarRegionComunaApi {
                     "${a.comuna}\n"
                     // "SECCIÓN : ${a.region}"
                 }
+                // Limpiar adapter antes de asignar uno nuevo
+                spinner.adapter = null
 
 
                 spinner.adapter = ArrayAdapter(
