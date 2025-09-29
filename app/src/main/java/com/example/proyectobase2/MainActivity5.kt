@@ -18,6 +18,9 @@ class MainActivity5 : AppCompatActivity() {
         val spComuna:Spinner=findViewById(R.id.sp_comunas)
         val btnOpcion:Button=findViewById(R.id.btn_opcion)
 
+        CargarRegionComunaApi.cargarregionComuna(this, spRegion)
+        CargarRegionComunaApi.cargarRegionComuna2(this, spComuna)
+
         CargarRegionComunaApi.cargarregionComuna(this,spRegion )
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
