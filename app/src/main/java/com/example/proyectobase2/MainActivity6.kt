@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Toast
 import com.example.proyectobase2.Api.InsertarAlumnosAPI
+import com.example.proyectobase2.utlis.validacionApi.validarYLimpiarCampos
 
 class MainActivity6 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,26 +74,36 @@ class MainActivity6 : AppCompatActivity() {
 
 
         btnSave.setOnClickListener {
-            InsertarAlumnosAPI.insertarAlumno(
-                owner = this,
-                context = this,
-                nombre = edNombre.text.toString(),
-                apellido = edApellido.text.toString(),
-                grupo = spGrupo.selectedItem.toString(),
-                seccion = spSeccion.selectedItem.toString(),
-                archivoBytes = null,
-                onSuccess = {
-                    println("termino insert correcto")
-                    Toast.makeText(this
-                        , "guardado"
-                        , Toast.LENGTH_SHORT)
-                },
-                onError = {
-                    println("termino insert incorrecto")
-                    Toast.makeText(this, "NO guardado", Toast.LENGTH_SHORT)
-                }
-            )
+            // Primero validamos los campos
+            if (validarYLimpiarCampos(edNombre, edApellido)) {
+                // Si la validación es exitosa, procedemos con la inserción
+                InsertarAlumnosAPI.insertarAlumno(
+                    owner = this,
+                    context = this,
+                    nombre = edNombre.text.toString(),
+                    apellido = edApellido.text.toString(),
+                    grupo = spGrupo.selectedItem.toString(),
+                    seccion = spSeccion.selectedItem.toString(),
+                    archivoBytes = null,
+                    onSuccess = {
+                        println("Terminó el insert correctamente")
+                        Toast.makeText(this, "Guardado correctamente", Toast.LENGTH_SHORT).show()
+                        edNombre.setText("")
+                        edApellido.setText("")
+                        spGrupo.setSelection(0) // Selecciona la primera opción del Spinner
+                        spSeccion.setSelection(0) // Similar para Sección
+                    },
+                    onError = {
+                        println("Terminó el insert incorrectamente")
+                        Toast.makeText(this, "No guardado", Toast.LENGTH_SHORT).show()
+                    }
+                )
+            } else {
+                // Si la validación falla, mostramos un Toast indicando el error
+                Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+            }
         }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
