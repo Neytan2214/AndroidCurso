@@ -1,7 +1,7 @@
 package com.example.proyectobase2.utlis
 
 import android.widget.EditText
-import com.example.proyectobase2.R
+
 
 object validacionApi {
     // La función ahora recibe los EditText como parámetros
