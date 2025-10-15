@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.proyectobase2.camaara.CaamaraController
 
 class MainActivity7 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +17,12 @@ class MainActivity7 : AppCompatActivity() {
         val ivImagen:ImageView=findViewById(R.id.iV)
         val btnTomarFoto:Button=findViewById(R.id.btn_tomar_foto)
         val btnCargarFoto:Button=findViewById(R.id.btn_cargar_foto)
+
+        btnTomarFoto.setOnClickListener {
+            CaamaraController.takePhoto()
+
+
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
