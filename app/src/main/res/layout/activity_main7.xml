@@ -19,6 +19,7 @@
         app:layout_constraintVertical_bias="0.217"
         tools:srcCompat="@tools:sample/avatars" />
 
+
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
         android:layout_width="0dp"
@@ -26,13 +27,12 @@
         android:background="#000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403">
+        app:layout_constraintVertical_bias="1.0">
 
     </androidx.camera.view.PreviewView>
-
 
     <Button
         android:id="@+id/btn_tomar_foto"
